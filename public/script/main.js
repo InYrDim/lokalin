@@ -1,7 +1,8 @@
+const wisataEntries = wisataMap.map.entries();
 // Ambil daftar wisata di Makassar
-function cariWisata(str) {
+function cariWisata(str, lokasiPengguna) {
 	const wisataDiMakassar = wisataMap.getWisata(str);
-	const lokasiPengguna = { latitude: -5.145, longitude: 119.432 }; // Contoh lokasi pengguna
+	// Contoh lokasi pengguna
 
 	// Buat objek Graph dari daftar wisata
 	const graph = new Graph(wisataDiMakassar);
@@ -15,6 +16,8 @@ function cariWisata(str) {
 		lokasiPengguna.longitude
 	);
 
+	console.log(hasil);
+
 	return hasil;
 }
 
@@ -24,23 +27,46 @@ function addToContainer(containerHtmls, listWisata) {
 
 	const html = listWisata.reduce((acc, wisata, i) => {
 		const jarak = jarakList[i];
-		return acc + renderWisataCard(wisata, jarak, i === 0);
+		let card =
+			renderWisataCard(wisata, jarak, i === 0) + renderModal(wisata);
+		return acc + card;
 	}, ``);
 
 	containerHtmls.innerHTML = html;
 }
-function handleObservedContainerElements(evt) {
+
+// getCurrentLocation Position lat long
+function getCurrentLocation() {
+	return new Promise((resolve, reject) => {
+		navigator.geolocation.getCurrentPosition(resolve, reject);
+	});
+}
+
+async function handleObservedContainerElements(evt) {
 	const { target, isIntersecting } = evt;
+
+	const { coords } = await getCurrentLocation();
+
+	const lokasiPengguna = {
+		latitude: coords.latitude,
+		longitude: coords.longitude,
+	};
 
 	if (!isIntersecting) {
 		return;
 	}
 	switch (target.id) {
 		case REKOMENDASI_CONTAINER_ID:
-			addToContainer(rekomendasiWisataContainer, cariWisata("Makassar"));
+			addToContainer(
+				rekomendasiWisataContainer,
+				cariWisata("Makassar", lokasiPengguna)
+			);
 			break;
 		case KABUPATEN_WISATA_CONTAINER_ID:
-			addToContainer(kabupatenWisataContainer, cariWisata("Parepare"));
+			addToContainer(
+				kabupatenWisataContainer,
+				cariWisata("Parepare", lokasiPengguna)
+			);
 			break;
 	}
 }
@@ -49,6 +75,6 @@ const observ = observeElements(
 	[rekomendasiWisataContainer, kabupatenWisataContainer],
 	handleObservedContainerElements
 );
-for (const entry of wisataMap.map.entries()) {
+for (const entry of wisataEntries) {
 	console.log(`${entry[0]}: ${entry[1].length} wisata`);
 }

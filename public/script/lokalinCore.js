@@ -156,6 +156,8 @@ class Navigator {
 				sortedResults.push({
 					id: node.id,
 					nama: node.nama,
+					latitude: node.latitude,
+					longitude: node.longitude,
 					jarak: distances.get(node.id),
 				});
 			}
