@@ -1,13 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-circle-pattern">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Lokalin</title>
-
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
-		<h1>Hello World</h1>
+		<div class="h-[100dvh] flex flex-col">
+			<header
+				class="py-2 text-center border-b-2 border-Primary-950 bg-Primary-50"
+			>
+				<div class="brand text-4xl font-semibold text-Accent-600">
+					Lokal<span class="text-Secondary-600">in.</span>
+				</div>
+			</header>
+
+			<main class="flex flex-1 justify-center items-center sm:p-6">
+				<div
+					class="flex-1 h-full w-fit bg-Primary-50 sm:border-2 sm:border-Primary-950"
+				>
+					<div role="tablist" class="tabs tabs-bordered">
+						<input
+							type="radio"
+							name="my_tabs_1"
+							role="tab"
+							class="tab"
+							checked="checked"
+							aria-label="Rekomendasi"
+						/>
+						<div role="tabpanel" class="tab-content p-10">
+							<h3 class="text-2xl">Rekomendasi Tempat</h3>
+							<div
+								id="rekomendasi-wisata"
+								class="flex gap-2 mt-2 flex-col sm:flex-row"
+							></div>
+						</div>
+
+						<input
+							type="radio"
+							name="my_tabs_1"
+							role="tab"
+							class="tab"
+							aria-label="Kabupaten"
+						/>
+						<div role="tabpanel" class="tab-content p-10">
+							<h3 class="text-2xl">Lihat di Kabupaten</h3>
+							<div
+								id="kabupaten-wisata"
+								class="flex gap-2 mt-2"
+							></div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<script src="./script/lokalinCore.js"></script>
+		<script src="./script/lokalinData.js"></script>
+		<script src="./script/utlis.js"></script>
+		<script src="./script/components.js"></script>
+		<script src="./script/config.js"></script>
+		<script src="./script/main.js"></script>
 	</body>
 </html>

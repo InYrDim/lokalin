@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-circle-pattern {
+	background: radial-gradient(circle, #acc44a 10%, transparent 11%);
+	background-size: 1em 1em;
+	background-color: #ffffff;
+	opacity: 1;
+}
