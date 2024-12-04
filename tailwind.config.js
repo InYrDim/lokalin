@@ -52,6 +52,7 @@ module.exports = {
 			},
 			boxShadow: {
 				main: "5px 5px 0px 0px black",
+				"main-reset": "0px 0px 0px 0px black",
 			},
 		},
 	},

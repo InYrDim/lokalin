@@ -8,6 +8,7 @@
 	background: radial-gradient(circle, #acc44a 10%, transparent 11%);
 	background-size: 1em 1em;
 	background-color: #ffffff;
+	background-attachment: fixed;
 	opacity: 1;
 }
 

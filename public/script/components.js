@@ -10,7 +10,7 @@ function renderWisataCard(wisata, jarak, isClosest) {
 	const container = document.createElement("div");
 	container.className = `border-2 border-Primary-950 ${
 		isClosest ? "bg-gradient" : "bg-circle-pattern"
-	} transition-all hover:shadow-[8px_8px_0px_rgba(0,0,0,1)] bg-base-100 shadow-xl`;
+	} transition-all shadow-main-reset hover:shadow-main bg-base-100 shadow-xl`;
 	container.id = wisata.id;
 
 	// Create the card body
