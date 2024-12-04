@@ -53,8 +53,17 @@
 				<div
 					class="flex-1 h-full w-fit bg-Primary-50 sm:border-2 sm:border-Primary-950"
 				>
-					<div class="flex items-left py-5">
-						<h2 class="text-6xl text-left p-6">
+					<div
+						class="breadcrumbs text-sm border-b-2 border-Primary-950 ps-6"
+					>
+						<ul>
+							<li><a href="index.html">Lokalin</a></li>
+							<li class="text-Accent-600">Home</li>
+						</ul>
+					</div>
+
+					<div class="flex items-left pb-6 pt-2 px-6">
+						<h2 class="text-6xl text-left">
 							<span class="text-5xl">Lokalin Memberikan Kamu</span
 							><br />
 							Rekomendasi
@@ -67,41 +76,47 @@
 							></span>
 						</h2>
 					</div>
-					<div role="tablist" class="tabs tabs-bordered">
-						<input
-							type="radio"
-							name="my_tabs_1"
-							role="tab"
-							class="tab"
-							checked="checked"
-							aria-label="Rekomendasi"
-						/>
-						<div role="tabpanel" class="tab-content p-10">
-							<h3 class="text-2xl">Rekomendasi Tempat</h3>
-							<div
-								id="rekomendasi-wisata"
-								class="flex gap-2 mt-2 flex-col sm:flex-row"
-							></div>
-						</div>
+					<div class="flex">
+						<div role="tablist" class="tabs tabs-bordered">
+							<input
+								type="radio"
+								name="my_tabs_1"
+								role="tab"
+								class="tab"
+								checked="checked"
+								aria-label="Rekomendasi"
+							/>
+							<div role="tabpanel" class="tab-content p-10">
+								<h3 class="text-2xl">Rekomendasi Tempat</h3>
+								<div
+									id="rekomendasi-wisata"
+									class="flex gap-2 mt-2 flex-col sm:flex-row"
+								></div>
+							</div>
 
-						<input
-							type="radio"
-							name="my_tabs_1"
-							role="tab"
-							class="tab"
-							aria-label="Kabupaten"
-						/>
-						<div role="tabpanel" class="tab-content p-10">
-							<h3 class="text-2xl">Lihat di Kabupaten</h3>
-							<select
-								class="mt-2"
-								name=""
-								id="select-kabupaten"
-							></select>
-							<div
-								id="kabupaten-wisata"
-								class="flex gap-2 mt-2 flex-col sm:flex-row"
-							></div>
+							<input
+								type="radio"
+								name="my_tabs_1"
+								role="tab"
+								class="tab"
+								aria-label="Kabupaten"
+							/>
+							<div role="tabpanel" class="tab-content p-10">
+								<h3 class="text-2xl">Lihat di:</h3>
+								<select
+									class="select select-bordered w-full max-w-xs mt-2"
+									name=""
+									id="select-kabupaten"
+								></select>
+								<div
+									id="kabupaten-wisata"
+									class="flex gap-2 mt-2 flex-col sm:flex-row"
+								></div>
+							</div>
+						</div>
+						<div>
+							<!-- leaflet map goes here -->
+							<div id="map" class="w-full h-full"></div>
 						</div>
 					</div>
 				</div>

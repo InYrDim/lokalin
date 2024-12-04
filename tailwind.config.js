@@ -50,6 +50,9 @@ module.exports = {
 			fontFamily: {
 				sans: ["Parkinsans", "sans-serif"],
 			},
+			boxShadow: {
+				main: "5px 5px 0px 0px black",
+			},
 		},
 	},
 	plugins: [require("daisyui")],

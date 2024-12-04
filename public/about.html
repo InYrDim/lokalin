@@ -35,11 +35,20 @@
 
 			<main class="flex flex-1 justify-center items-center sm:p-6">
 				<div
-					class="flex-1 h-full w-fit bg-Primary-50 sm:border-2 sm:border-Primary-950"
+					class="flex-1 flex justify-stretch flex-col h-full w-fit bg-Primary-50 sm:border-2 sm:border-Primary-950 relative"
 				>
-					<div class="flex items-left py-5">
-						<h2 class="text-6xl text-left p-6">
-							<span class="text-5xl">Lokalin Memberikan Kamu</span
+					<div
+						class="breadcrumbs text-sm border-b-2 border-Primary-950 ps-6"
+					>
+						<ul>
+							<li><a href="index.html">Lokalin</a></li>
+							<li class="text-Accent-600">About</li>
+						</ul>
+					</div>
+
+					<div class="flex items-left pb-6 pt-2 px-6">
+						<h2 class="text-6xl text-left">
+							<span class="text-4xl">Lokalin Memberikan Kamu</span
 							><br />
 							Rekomendasi
 							<span class="text-Secondary-600"
@@ -51,16 +60,60 @@
 							></span>
 						</h2>
 					</div>
-					<div>
-						<div>
-							<p
-								class="text-Primary-500 text-lg sm:text-xl text-justify sm:text-left p-4 md:p-6 max-w-xl block"
+					<div class="flex-1 flex p-8 gap-8">
+						<div class="flex-1 flex flex-col justify-between">
+							<div>
+								<p
+									class="text-Primary-500 text-lg sm:text-xl text-justify sm:text-left max-w-xl block"
+								>
+									Lokalin adalah sebuah platform rekomendasi
+									wisata yang membantu kamu menemukan
+									tempat-tempat wisata
+									<strong>terdekat</strong> dari lokasi kamu
+									di Sulawesi Selatan.
+								</p>
+							</div>
+							<div>
+								<p>Dibuat oleh: <span>Kelompok 1</span></p>
+								<ul>
+									<li>1. Muh. Dimas Januardi Nur</li>
+									<li>2. Reza Fathurrahman</li>
+								</ul>
+							</div>
+						</div>
+						<div
+							class="flex-1 flex items-center justify-center relative"
+						>
+							<div
+								class="absolute right-0 transition-all z-0 scale-100 hover:scale-105 hover:z-30 mr-20"
 							>
-								Lokalin adalah sebuah platform rekomendasi
-								wisata yang membantu kamu menemukan
-								tempat-tempat wisata
-								<strong>terdekat</strong> di Sulawesi Selatan.
-							</p>
+								<img
+									width="300"
+									src="./img/dimas.png"
+									alt="Muh. Dimas Januardi Nur"
+									class="border-2 border-Primary-950 shadow-main"
+								/>
+								<div
+									class="bg-Primary-50 border-2 border-Primary-950 absolute p-1 bottom-0 mb-5 -left-10 z-20"
+								>
+									Muh. Dimas Januardi Nur
+								</div>
+							</div>
+							<div
+								class="absolute left-0 top-0 -mt-10 transition-all z-0 scale-90 hover:scale-75 hover:z-30 ml-10"
+							>
+								<img
+									width="300"
+									src="./img/reza.png"
+									alt="Reza Fathurrahman"
+									class="border-2 border-Primary-950 shadow-main"
+								/>
+								<div
+									class="bg-Primary-50 border-2 border-Primary-950 absolute p-1 bottom-0 mb-5 -left-10 z-20"
+								>
+									Reza Fathurrahman
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
