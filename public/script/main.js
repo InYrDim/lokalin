@@ -16,23 +16,40 @@ function cariWisata(str, lokasiPengguna) {
 		lokasiPengguna.longitude
 	);
 
-	console.log(hasil);
-
 	return hasil;
 }
 
 // Tampilkan hasil
 function addToContainer(containerHtmls, listWisata) {
-	const jarakList = listWisata.map((wisata) => parseDistance(wisata.jarak));
+	if (!Array.isArray(listWisata) || listWisata.length === 0) {
+		console.warn("No destinations found to render.");
+		containerHtmls.innerHTML = "<p>No destinations available.</p>";
+		return;
+	}
 
-	const html = listWisata.reduce((acc, wisata, i) => {
-		const jarak = jarakList[i];
-		let card =
-			renderWisataCard(wisata, jarak, i === 0) + renderModal(wisata);
-		return acc + card;
-	}, ``);
+	const wisataCards = listWisata.map((wisata, index) => {
+		const jarak = parseDistance(wisata.jarak);
+		const { card, buttonId } = renderWisataCard(wisata, jarak, index === 0);
+		return { card, buttonId, wisata };
+	});
 
-	containerHtmls.innerHTML = html;
+	containerHtmls.innerHTML = wisataCards.map(({ card }) => card).join("");
+
+	containerHtmls.addEventListener("click", (event) => {
+		const button = event.target.closest("button[data-id]");
+
+		if (button) {
+			const wisataId = button.getAttribute("data-id");
+			const wisata = listWisata.find((w) => w.id == wisataId);
+			if (wisata) {
+				const mapModal = document.getElementById("map_modal");
+				if (mapModal) {
+					renderModal(wisata);
+					mapModal.showModal();
+				}
+			}
+		}
+	});
 }
 
 // getCurrentLocation Position lat long
@@ -43,31 +60,35 @@ function getCurrentLocation() {
 }
 
 async function handleObservedContainerElements(evt) {
-	const { target, isIntersecting } = evt;
+	try {
+		const { coords } = await getCurrentLocation();
+		const lokasiPengguna = {
+			latitude: coords.latitude,
+			longitude: coords.longitude,
+		};
+		const { target, isIntersecting } = evt;
 
-	const { coords } = await getCurrentLocation();
+		if (!isIntersecting) return;
 
-	const lokasiPengguna = {
-		latitude: coords.latitude,
-		longitude: coords.longitude,
-	};
-
-	if (!isIntersecting) {
-		return;
-	}
-	switch (target.id) {
-		case REKOMENDASI_CONTAINER_ID:
+		if (target.id === REKOMENDASI_CONTAINER_ID) {
 			addToContainer(
 				rekomendasiWisataContainer,
 				cariWisata("Makassar", lokasiPengguna)
 			);
-			break;
-		case KABUPATEN_WISATA_CONTAINER_ID:
+		} else if (target.id === KABUPATEN_WISATA_CONTAINER_ID) {
+			renderSelectElement((val) => {
+				addToContainer(
+					kabupatenWisataContainer,
+					cariWisata(val, lokasiPengguna)
+				);
+			});
 			addToContainer(
 				kabupatenWisataContainer,
-				cariWisata("Parepare", lokasiPengguna)
+				cariWisata("Makassar", lokasiPengguna)
 			);
-			break;
+		}
+	} catch (err) {
+		console.error("Error handling observed elements:", err);
 	}
 }
 
@@ -75,6 +96,3 @@ const observ = observeElements(
 	[rekomendasiWisataContainer, kabupatenWisataContainer],
 	handleObservedContainerElements
 );
-for (const entry of wisataEntries) {
-	console.log(`${entry[0]}: ${entry[1].length} wisata`);
-}

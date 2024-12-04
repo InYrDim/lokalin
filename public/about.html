@@ -7,22 +7,6 @@
 		<link rel="stylesheet" href="./css/style.css" />
 	</head>
 	<body>
-		<dialog id="map_modal" class="modal">
-			<div class="modal-box border-2 border-Primary-950 rounded-none">
-				<form method="dialog">
-					<button
-						class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-					>
-						✕
-					</button>
-				</form>
-				<h3 class="text-2xl font-bold" id="modal-title">...</h3>
-				<p class="py-4 italic text-sm opacity-70">
-					Press ESC key or click on ✕ button to close
-				</p>
-				<div id="modal-iframe"></div>
-			</div>
-		</dialog>
 		<div class="h-[100dvh] flex flex-col">
 			<header
 				class="text-center border-b-2 border-Primary-950 bg-Primary-50"
@@ -67,41 +51,16 @@
 							></span>
 						</h2>
 					</div>
-					<div role="tablist" class="tabs tabs-bordered">
-						<input
-							type="radio"
-							name="my_tabs_1"
-							role="tab"
-							class="tab"
-							checked="checked"
-							aria-label="Rekomendasi"
-						/>
-						<div role="tabpanel" class="tab-content p-10">
-							<h3 class="text-2xl">Rekomendasi Tempat</h3>
-							<div
-								id="rekomendasi-wisata"
-								class="flex gap-2 mt-2 flex-col sm:flex-row"
-							></div>
-						</div>
-
-						<input
-							type="radio"
-							name="my_tabs_1"
-							role="tab"
-							class="tab"
-							aria-label="Kabupaten"
-						/>
-						<div role="tabpanel" class="tab-content p-10">
-							<h3 class="text-2xl">Lihat di Kabupaten</h3>
-							<select
-								class="mt-2"
-								name=""
-								id="select-kabupaten"
-							></select>
-							<div
-								id="kabupaten-wisata"
-								class="flex gap-2 mt-2 flex-col sm:flex-row"
-							></div>
+					<div>
+						<div>
+							<p
+								class="text-Primary-500 text-lg sm:text-xl text-justify sm:text-left p-4 md:p-6 max-w-xl block"
+							>
+								Lokalin adalah sebuah platform rekomendasi
+								wisata yang membantu kamu menemukan
+								tempat-tempat wisata
+								<strong>terdekat</strong> di Sulawesi Selatan.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -132,11 +91,6 @@
 		</script>
 
 		<!-- Piramida Terbalik -->
-		<script src="./script/lokalinCore.js"></script>
-		<script src="./script/lokalinData.js"></script>
-		<script src="./script/utlis.js"></script>
-		<script src="./script/components.js"></script>
-		<script src="./script/config.js"></script>
 		<script src="./script/main.js"></script>
 	</body>
 </html>

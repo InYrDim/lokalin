@@ -3,15 +3,15 @@ const wisata = new WisataMap();
 
 wisata.addWisata(
 	"Makassar",
-	new Wisata(1, "Pantai Losari", -5.147665, 119.432731)
+	new Wisata(1, "Pantai Losari", -5.143536488789829, 119.40750107695914)
 );
 wisata.addWisata(
 	"Makassar",
-	new Wisata(2, "Fort Rotterdam", -5.139025, 119.406845)
+	new Wisata(2, "Fort Rotterdam", -5.133824084387041, 119.405577455819)
 );
 wisata.addWisata(
 	"Makassar",
-	new Wisata(3, "Trans Studio Mall", -5.146735, 119.437662)
+	new Wisata(3, "Trans Studio Mall", -5.158979945891612, 119.39432523926536)
 );
 
 // Parepare

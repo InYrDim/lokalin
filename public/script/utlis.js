@@ -4,14 +4,23 @@ function parseDistance(distance) {
 }
 
 // create observer
-function observeElements(arr, callback) {
-	let el = [];
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach(callback);
-	});
-
-	for (let i = 0; i < arr.length; i++) {
-		el.push(observer.observe(arr[i]));
+function observeElements(elements, onIntersect, options = {}) {
+	if (!window.IntersectionObserver) {
+		console.warn("IntersectionObserver is not supported by this browser.");
+		return null;
 	}
+
+	if (
+		!Array.isArray(elements) ||
+		elements.some((el) => !(el instanceof Element))
+	) {
+		throw new Error("The first argument must be an array of DOM elements.");
+	}
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(onIntersect);
+	}, options);
+
+	elements.forEach((element) => observer.observe(element));
 	return observer;
 }

@@ -10,3 +10,8 @@
 	background-color: #ffffff;
 	opacity: 1;
 }
+
+.bg-gradient {
+	background: url("../img/bg.svg");
+	background-size: cover;
+}
