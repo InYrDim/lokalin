@@ -77,52 +77,147 @@ wisata.addWisata(
 
 // Makale (Tana Toraja)
 wisata.addWisata(
-	"Makale",
+	"Toraja",
 	new Wisata(
 		generateUniqueId(),
-		"Tana Toraja Cultural Heritage",
-		-3.17,
-		119.8
+		"Lembah Ollon",
+		-3.2250281633252476,
+		119.67007182258094
 	)
 );
 wisata.addWisata(
-	"Makale",
-	new Wisata(generateUniqueId(), "Batu Tumonga", -3.195, 119.75)
+	"Toraja",
+	new Wisata(
+		generateUniqueId(),
+		"Pango-Pango Makale",
+		-3.13662897711643,
+		119.83557811657836
+	)
+);
+wisata.addWisata(
+	"Toraja",
+	new Wisata(
+		generateUniqueId(),
+		"Tongkonan Ke'te' Kesu'",
+		-2.994996593660863,
+		119.91057789142691
+	)
+);
+wisata.addWisata(
+	"Toraja",
+	new Wisata(
+		generateUniqueId(),
+		"Patung Tuhan Yesus Memberkati",
+		-3.091900640060872,
+		119.86643051291819
+	)
+);
+wisata.addWisata(
+	"Toraja",
+	new Wisata(
+		generateUniqueId(),
+		"Batu Tumonga",
+		-2.9073542399698917,
+		119.88325076579925
+	)
 );
 
 // Pangkep
 wisata.addWisata(
 	"Pangkep",
-	new Wisata(generateUniqueId(), "Pulau Lae Lae", -5.06, 119.48)
+	new Wisata(
+		generateUniqueId(),
+		"Taman Purbakala Sumpang Bita",
+		-4.911466164010997,
+		119.64929637932619
+	)
 );
 wisata.addWisata(
 	"Pangkep",
 	new Wisata(
 		generateUniqueId(),
-		"Taman Nasional Kepulauan Togean",
-		-5.05,
-		119.47
+		"Danau Hijau Balocci",
+		-4.9054559992189795,
+		119.64319600112309
+	)
+);
+wisata.addWisata(
+	"Pangkep",
+	new Wisata(
+		generateUniqueId(),
+		"Wisata Leang Lonrong",
+		-4.860630607978575,
+		119.63626728171255
+	)
+);
+wisata.addWisata(
+	"Pangkep",
+	new Wisata(
+		generateUniqueId(),
+		"Telaga Biru palleo",
+		-4.64455614218366,
+		119.61622981627646
 	)
 );
 
 // Gowa
 wisata.addWisata(
 	"Gowa",
-	new Wisata(generateUniqueId(), "Istana Balla Lompoa", -5.14, 119.43)
+	new Wisata(
+		generateUniqueId(),
+		"Museum Balla Lompoa",
+		-5.206667397855771,
+		119.45288314724307
+	)
 );
 wisata.addWisata(
 	"Gowa",
-	new Wisata(generateUniqueId(), "Air Terjun Lembanna", -5.063, 119.804)
+	new Wisata(
+		generateUniqueId(),
+		"Air Terjun Lembanna",
+		-5.256052602709059,
+		119.91270026475074
+	)
 );
 
 // Sinjai
 wisata.addWisata(
 	"Sinjai",
-	new Wisata(generateUniqueId(), "Pantai Sipek", -5.387, 119.266)
+	new Wisata(
+		generateUniqueId(),
+		"Air Terjun Baruttungnge",
+		-5.25565467364397,
+		120.15722235859832
+	)
 );
 wisata.addWisata(
 	"Sinjai",
-	new Wisata(generateUniqueId(), "Goa Mampu", -5.36, 119.24)
+	new Wisata(
+		generateUniqueId(),
+		"Wae pella'e",
+		-5.1345636242772885,
+		120.20432977821595
+	)
+);
+wisata.addWisata(
+	"Sinjai",
+	new Wisata(
+		generateUniqueId(),
+		"Taman Purbakala Batu Pake Gojeng",
+		-5.12538302318506,
+		120.24465443335994
+	)
+);
+
+//bone
+wisata.addWisata(
+	"Bone",
+	new Wisata(
+		generateUniqueId(),
+		"Goa Mampu",
+		-4.3261702545651275,
+		120.22366446184752
+	)
 );
 
 //sidrap
