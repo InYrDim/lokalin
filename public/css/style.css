@@ -2136,6 +2136,11 @@ input.tab:checked + .tab-content,
   margin-right: auto;
 }
 
+.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .-mt-10{
   margin-top: -2.5rem;
 }
@@ -2158,6 +2163,10 @@ input.tab:checked + .tab-content,
 
 .mt-4{
   margin-top: 1rem;
+}
+
+.mb-2{
+  margin-bottom: 0.5rem;
 }
 
 .block{
@@ -2373,6 +2382,11 @@ input.tab:checked + .tab-content,
   line-height: 1.25rem;
 }
 
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 .font-bold{
   font-weight: 700;
 }
@@ -2383,6 +2397,10 @@ input.tab:checked + .tab-content,
 
 .italic{
   font-style: italic;
+}
+
+.leading-none{
+  line-height: 1;
 }
 
 .text-Accent-500{
@@ -2413,6 +2431,11 @@ input.tab:checked + .tab-content,
 .text-Secondary-600{
   --tw-text-opacity: 1;
   color: rgb(32 118 172 / var(--tw-text-opacity, 1));
+}
+
+.text-Primary-600{
+  --tw-text-opacity: 1;
+  color: rgb(101 101 101 / var(--tw-text-opacity, 1));
 }
 
 .opacity-70{
@@ -2494,10 +2517,6 @@ input.tab:checked + .tab-content,
 }
 
 @media (min-width: 640px){
-  .sm\:flex-row{
-    flex-direction: row;
-  }
-
   .sm\:border-2{
     border-width: 2px;
   }
@@ -2518,5 +2537,21 @@ input.tab:checked + .tab-content,
   .sm\:text-xl{
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 768px){
+  .md\:flex-row{
+    flex-direction: row;
+  }
+
+  .md\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .md\:text-6xl{
+    font-size: 3.75rem;
+    line-height: 1;
   }
 }

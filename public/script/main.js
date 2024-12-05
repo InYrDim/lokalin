@@ -39,19 +39,14 @@ function addToContainer(containerHtmls, listWisata) {
 			const wisata = listWisata.find((w) => w.id == wisataId);
 			if (wisata) {
 				const mapModal = document.getElementById("map_modal");
+				const { latitude, longitude } = wisata;
 				if (mapModal) {
+					setOSRMDistance({ latitude, longitude });
 					renderModal(wisata);
 					mapModal.showModal();
 				}
 			}
 		}
-	});
-}
-
-// getCurrentLocation Position lat long
-function getCurrentLocation() {
-	return new Promise((resolve, reject) => {
-		navigator.geolocation.getCurrentPosition(resolve, reject);
 	});
 }
 
