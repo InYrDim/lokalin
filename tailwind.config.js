@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+	darkMode: "selector",
 	content: ["./public/**/*.{html,js}"],
 	theme: {
 		extend: {
@@ -55,6 +56,9 @@ module.exports = {
 				"main-reset": "0px 0px 0px 0px black",
 			},
 		},
+	},
+	daisyui: {
+		themes: ["lofi"],
 	},
 	plugins: [require("daisyui")],
 };
