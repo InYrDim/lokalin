@@ -16,7 +16,7 @@ async function setOSRMDistance({ latitude, longitude }) {
 	const { coords } = await getCurrentLocation();
 
 	const response = await fetch(
-		`http://router.project-osrm.org/route/v1/driving/${coords.longitude},${coords.latitude};${longitude},${latitude}?overview=false`
+		`https://router.project-osrm.org/route/v1/driving/${coords.longitude},${coords.latitude};${longitude},${latitude}?overview=false`
 	);
 	const data = await response.json();
 
