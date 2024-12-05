@@ -45,47 +45,21 @@ class WisataMap {
 	}
 
 	getWisata(kota) {
-		if (!this.map.has(kota)) {
+		const wisataList = this.map.get(kota);
+
+		if (!wisataList) {
 			throw new Error(
 				`Kota "${kota}" tidak ditemukan dalam peta wisata.`
 			);
 		}
-		return this.map.get(kota);
+
+		return new Map(wisataList.map((wisata) => [wisata.nama, wisata]));
 	}
 }
 
-class Graph {
-	constructor(wisataList) {
-		this.wisataList = wisataList;
-		this.graph = new Map();
-		this.createGraph();
-	}
-
-	createGraph() {
-		for (let node of this.wisataList) {
-			this.graph.set(node.id, []);
-			for (let neighbor of this.wisataList) {
-				if (node.id !== neighbor.id) {
-					const distance = Navigator.haversine(
-						node.latitude,
-						node.longitude,
-						neighbor.latitude,
-						neighbor.longitude
-					);
-					this.graph.get(node.id).push({ id: neighbor.id, distance });
-				}
-			}
-		}
-	}
-
-	getNeighbors(nodeId) {
-		return this.graph.get(nodeId) || [];
-	}
-}
-
-class Navigator {
-	constructor(graph) {
-		this.graph = graph;
+class LokalinNavigator {
+	constructor(wisataMap) {
+		this.wisataList = wisataMap;
 	}
 
 	static haversine(lat1, lon1, lat2, lon2) {
@@ -101,68 +75,28 @@ class Navigator {
 		return R * c;
 	}
 
-	dijkstra(startLat, startLon) {
-		const distances = new Map();
-		const priorityQueue = [];
-		const visited = new Set();
+	resolve(startLat, startLon) {
+		// this.wisataList is a new Map of Wisata objects
 
-		for (const node of this.graph.wisataList) {
-			distances.set(node.id, Infinity);
-		}
+		for (const [id, wisata] of this.wisataList.entries()) {
+			const { latitude, longitude } = wisata;
 
-		const startNodeId = "start";
-		distances.set(startNodeId, 0);
-		priorityQueue.push({ id: startNodeId, distance: 0 });
-
-		// Tambahkan node awal (lokasi pengguna) ke graph
-		this.graph.graph.set(startNodeId, []);
-		for (const node of this.graph.wisataList) {
-			const distance = Navigator.haversine(
+			const distance = LokalinNavigator.haversine(
 				startLat,
 				startLon,
-				node.latitude,
-				node.longitude
+				latitude,
+				longitude
 			);
-			this.graph.graph.get(startNodeId).push({ id: node.id, distance });
+
+			this.wisataList.set(id, { ...wisata, distance });
 		}
 
-		while (priorityQueue.length > 0) {
-			priorityQueue.sort((a, b) => a.distance - b.distance);
-			const currentNode = priorityQueue.shift();
-
-			if (visited.has(currentNode.id)) continue;
-			visited.add(currentNode.id);
-
-			for (const neighbor of this.graph.getNeighbors(currentNode.id)) {
-				const newDistance =
-					distances.get(currentNode.id) + neighbor.distance;
-				if (newDistance < distances.get(neighbor.id)) {
-					distances.set(neighbor.id, newDistance);
-					priorityQueue.push({
-						id: neighbor.id,
-						distance: newDistance,
-					});
-				}
-			}
-		}
-
-		return this.getSortedResults(distances);
+		return this.getSortedResults();
 	}
 
-	getSortedResults(distances) {
-		const sortedResults = [];
-		for (const node of this.graph.wisataList) {
-			if (distances.has(node.id)) {
-				sortedResults.push({
-					id: node.id,
-					nama: node.nama,
-					latitude: node.latitude,
-					longitude: node.longitude,
-					jarak: distances.get(node.id),
-				});
-			}
-		}
-		sortedResults.sort((a, b) => a.jarak - b.jarak);
-		return sortedResults;
+	getSortedResults() {
+		return [...this.wisataList.entries()]
+			.sort((a, b) => a[1].distance - b[1].distance)
+			.map(([, w]) => w);
 	}
 }

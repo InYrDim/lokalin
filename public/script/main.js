@@ -2,16 +2,12 @@ const wisataEntries = wisataMap.map.entries();
 // Ambil daftar wisata di Makassar
 function cariWisata(str, lokasiPengguna) {
 	const wisataDiMakassar = wisataMap.getWisata(str);
-	// Contoh lokasi pengguna
-
-	// Buat objek Graph dari daftar wisata
-	const graph = new Graph(wisataDiMakassar);
 
 	// Buat objek Navigator dengan graph yang telah dibuat
-	const navigator = new Navigator(graph);
+	const navigator = new LokalinNavigator(wisataDiMakassar);
 
-	// Jalankan algoritma Dijkstra untuk mendapatkan hasil
-	const hasil = navigator.dijkstra(
+	// Jalankan untuk mendapatkan hasil
+	const hasil = navigator.resolve(
 		lokasiPengguna.latitude,
 		lokasiPengguna.longitude
 	);
@@ -28,7 +24,7 @@ function addToContainer(containerHtmls, listWisata) {
 	}
 
 	const wisataCards = listWisata.map((wisata, index) => {
-		const jarak = parseDistance(wisata.jarak);
+		const jarak = parseDistance(wisata.distance);
 		const { card, buttonId } = renderWisataCard(wisata, jarak, index === 0);
 		return { card, buttonId, wisata };
 	});

@@ -1,10 +1,3 @@
-/**
- * Render a card for a given wisata object, distance, and flag whether it is the closest.
- * @param {Object} wisata - Wisata object to render.
- * @param {number} jarak - Distance to render.
- * @param {boolean} isClosest - Whether the wisata is the closest.
- * @returns {string} - HTML string for the rendered card.
- */
 function renderWisataCard(wisata, jarak, isClosest) {
 	// Create the container div for the card
 	const container = document.createElement("div");
