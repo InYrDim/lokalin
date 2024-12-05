@@ -40,10 +40,23 @@ wisata.addWisata(
 );
 
 // Parepare
-wisata.addWisata("Parepare", new Wisata(generateUniqueId(), "Pulau Kambing"));
 wisata.addWisata(
 	"Parepare",
-	new Wisata(generateUniqueId(), "Pantai Tanjung", -4.007202, 119.609501)
+	new Wisata(
+		generateUniqueId(),
+		"Monumen Cinta Sejati Habibie-Ainun",
+		-4.011690005633686,
+		119.6221562865287
+	)
+);
+wisata.addWisata(
+	"Parepare",
+	new Wisata(
+		generateUniqueId(),
+		"Tonrangeng Riverside",
+		-4.046451140417738,
+		119.62558951449643
+	)
 );
 
 // Bulukumba
@@ -75,6 +88,53 @@ wisata.addWisata(
 	)
 );
 
+// Pinrang
+wisata.addWisata(
+	"Pinrang",
+	new Wisata(
+		generateUniqueId(),
+		"Permandian Alam Air Panas Lemo Susu",
+		-3.4260342342119703,
+		119.53822491664368
+	)
+);
+wisata.addWisata(
+	"Pinrang",
+	new Wisata(
+		generateUniqueId(),
+		"Air Terjun Karawa",
+		-3.467286956265361,
+		119.54971491328051
+	)
+);
+wisata.addWisata(
+	"Pinrang",
+	new Wisata(
+		generateUniqueId(),
+		"Air Terjun Latta Pitu",
+		-3.5221164451531743,
+		119.62318597359281
+	)
+);
+wisata.addWisata(
+	"Pinrang",
+	new Wisata(
+		generateUniqueId(),
+		"Pantai Salopi",
+		-3.5132068731498935,
+		119.49684320642673
+	)
+);
+wisata.addWisata(
+	"Pinrang",
+	new Wisata(
+		generateUniqueId(),
+		"Pantai Al Fath Stira ParADIse",
+		-3.599306171779745,
+		119.49595098878103
+	)
+);
+
 // Makale (Tana Toraja)
 wisata.addWisata(
 	"Toraja",
@@ -92,6 +152,33 @@ wisata.addWisata(
 		"Pango-Pango Makale",
 		-3.13662897711643,
 		119.83557811657836
+	)
+);
+wisata.addWisata(
+	"Toraja",
+	new Wisata(
+		generateUniqueId(),
+		"Lolai - To' Tombi",
+		-2.959477852804175,
+		119.86310602551133
+	)
+);
+wisata.addWisata(
+	"Toraja",
+	new Wisata(
+		generateUniqueId(),
+		"Tongkonan Karuaya",
+		-3.0443757804437555,
+		119.91164749491656
+	)
+);
+wisata.addWisata(
+	"Toraja",
+	new Wisata(
+		generateUniqueId(),
+		"Rante Kalimbuang Bori'",
+		-2.91315821441781,
+		119.91941236539613
 	)
 );
 wisata.addWisata(
@@ -160,6 +247,160 @@ wisata.addWisata(
 	)
 );
 
+// Barru
+wisata.addWisata(
+	"Barru",
+	new Wisata(
+		generateUniqueId(),
+		"Lappa Laona",
+		-4.5492655472942305,
+		119.76353727531848
+	)
+);
+
+// Maros
+wisata.addWisata(
+	"Maros",
+	new Wisata(
+		generateUniqueId(),
+		"Kampoeng Karst Rammang Rammang",
+		-4.913752106991126,
+		119.6191709147849
+	)
+);
+wisata.addWisata(
+	"Maros",
+	new Wisata(
+		generateUniqueId(),
+		"Wisata Dolli Bungaeja",
+		-4.945173454633722,
+		119.66104382473095
+	)
+);
+wisata.addWisata(
+	"Maros",
+	new Wisata(
+		generateUniqueId(),
+		"Taman Nasional Bantimurung Bulusaraung",
+		-5.001909334762526,
+		119.68425100149321
+	)
+);
+wisata.addWisata(
+	"Maros",
+	new Wisata(
+		generateUniqueId(),
+		"Maros Highland",
+		-5.124987359164442,
+		119.58464705913694
+	)
+);
+wisata.addWisata(
+	"Maros",
+	new Wisata(
+		generateUniqueId(),
+		"Air Terjun Lacolla",
+		-4.9736762957104705,
+		119.83472759375215
+	)
+);
+
+// Jeneponto
+wisata.addWisata(
+	"Jeneponto",
+	new Wisata(
+		generateUniqueId(),
+		"Bukit Bossolo",
+		-5.49072253391775,
+		119.84196875984553
+	)
+);
+wisata.addWisata(
+	"Jeneponto",
+	new Wisata(
+		generateUniqueId(),
+		"PLTB.72.MW.TOLO",
+		-5.64856724153388,
+		119.76092941798716
+	)
+);
+wisata.addWisata(
+	"Jeneponto",
+	new Wisata(
+		generateUniqueId(),
+		"Batu Karst Pundo Siping",
+		-5.556186710620537,
+		119.51688793290919
+	)
+);
+wisata.addWisata(
+	"Jeneponto",
+	new Wisata(
+		generateUniqueId(),
+		"Bukit Bulu Jaya",
+		-5.508661606476881,
+		119.54486569407592
+	)
+);
+
+// Takalar
+wisata.addWisata(
+	"Takalar",
+	new Wisata(
+		generateUniqueId(),
+		"Wisata Pantai Topejawa",
+		-5.506218873959222,
+		119.43159663864945
+	)
+);
+wisata.addWisata(
+	"Takalar",
+	new Wisata(
+		generateUniqueId(),
+		"Paria laut",
+		-5.4765183768114705,
+		119.41113118223188
+	)
+);
+
+// Soppeng
+wisata.addWisata(
+	"Soppeng",
+	new Wisata(
+		generateUniqueId(),
+		"Taman Wisata Alam Lejja",
+		-4.142398303273612,
+		119.78744480265775
+	)
+);
+wisata.addWisata(
+	"Soppeng",
+	new Wisata(
+		generateUniqueId(),
+		"Permandian Lereng Hijau Bulu Dua",
+		-4.489997137161638,
+		119.78166801018082
+	)
+);
+wisata.addWisata(
+	"Soppeng",
+	new Wisata(
+		generateUniqueId(),
+		"Rumah Adat Sao Mario",
+		-4.1315429205334,
+		119.868949296621
+	)
+);
+wisata.addWisata(
+	"Soppeng",
+	new Wisata(
+		generateUniqueId(),
+		"Takae Highland",
+		-4.2825974667058695,
+		119.85710018506393
+	)
+);
+
 // Gowa
 wisata.addWisata(
 	"Gowa",
@@ -177,6 +418,15 @@ wisata.addWisata(
 		"Air Terjun Lembanna",
 		-5.256052602709059,
 		119.91270026475074
+	)
+);
+wisata.addWisata(
+	"Gowa",
+	new Wisata(
+		generateUniqueId(),
+		"Malino Highlands",
+		-5.243777157076747,
+		119.90343452883545
 	)
 );
 
@@ -219,6 +469,15 @@ wisata.addWisata(
 		120.22366446184752
 	)
 );
+wisata.addWisata(
+	"Bone",
+	new Wisata(
+		generateUniqueId(),
+		"Hutan Pinus Bulu Tanah",
+		-4.686100594845745,
+		119.88470070043067
+	)
+);
 
 //sidrap
 wisata.addWisata(
@@ -230,6 +489,24 @@ wisata.addWisata(
 		119.86759081955407
 	)
 );
+wisata.addWisata(
+	"Sidrap",
+	new Wisata(
+		generateUniqueId(),
+		"Sulapa Angin Punjabu",
+		-3.995428489989416,
+		119.86759081955407
+	)
+);
+wisata.addWisata(
+	"Sidrap",
+	new Wisata(
+		generateUniqueId(),
+		"Puncak Bila Sidrap",
+		-3.8146216349342525,
+		120.04866368251659
+	)
+);
 
 // Luwu
 wisata.addWisata(
@@ -239,5 +516,62 @@ wisata.addWisata(
 		"Air Terjun Kali Dingin",
 		-2.5704135888413773,
 		121.29352838527343
+	)
+);
+
+// Enrekang
+wisata.addWisata(
+	"Enrekang",
+	new Wisata(
+		generateUniqueId(),
+		"Buttu Macca",
+		-3.464585920751664,
+		119.79744537332067
+	)
+);
+wisata.addWisata(
+	"Enrekang",
+	new Wisata(
+		generateUniqueId(),
+		"Dante Pine",
+		-3.4449185241697324,
+		119.79028604296319
+	)
+);
+wisata.addWisata(
+	"Enrekang",
+	new Wisata(
+		generateUniqueId(),
+		"Gunung Nona",
+		-3.469817602952867,
+		119.81145985749605
+	)
+);
+// Selayar
+wisata.addWisata(
+	"Selayar",
+	new Wisata(
+		generateUniqueId(),
+		"Bukit nane polassi",
+		-6.68591787401914,
+		120.43527072734976
+	)
+);
+wisata.addWisata(
+	"Selayar",
+	new Wisata(
+		generateUniqueId(),
+		"Pantai Punagaan",
+		-6.208847540412616,
+		120.52053816959241
+	)
+);
+wisata.addWisata(
+	"Selayar",
+	new Wisata(
+		generateUniqueId(),
+		"Taman Nasional Taka Bonerate",
+		-6.538236329626985,
+		121.11646402042265
 	)
 );
