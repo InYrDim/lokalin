@@ -73,15 +73,6 @@ wisata.addWisata(
 	"Bulukumba",
 	new Wisata(
 		generateUniqueId(),
-		"Pulau Kambing",
-		-8.448614570529081,
-		118.69583322166862
-	)
-);
-wisata.addWisata(
-	"Bulukumba",
-	new Wisata(
-		generateUniqueId(),
 		"Lotong-lotong",
 		-5.49243736423213,
 		120.33853053926937

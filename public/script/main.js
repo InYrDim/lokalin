@@ -75,7 +75,7 @@ async function handleObservedContainerElements(evt) {
 			});
 			addToContainer(
 				kabupatenWisataContainer,
-				cariWisata("Makassar", lokasiPengguna)
+				cariWisata("Barru", lokasiPengguna)
 			);
 		}
 	} catch (err) {

@@ -70,16 +70,18 @@ function renderSelectElement(callback) {
 	let wisatas = [];
 	for (const entry of wisataEntries) {
 		const entryName = entry[0];
+		wisatas.push(entryName);
+	}
+	wisatas = wisatas.sort();
+	wisatas.forEach((entryName) => {
 		const option = document.createElement("option");
 		option.value = entryName;
 		option.textContent = entryName;
-		wisatas.push(entryName);
 		select.appendChild(option);
-	}
+	});
 
 	select.onchange = () => {
 		callback(select.value);
 	};
-
 	return wisatas;
 }
