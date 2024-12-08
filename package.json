@@ -13,9 +13,5 @@
 	},
 	"author": "Muh. Dimas Januardi Nur",
 	"license": "ISC",
-	"description": "",
-	"dependencies": {
-		"@supabase/supabase-js": "^2.47.2",
-		"dotenv": "^16.4.7"
-	}
+	"description": ""
 }
