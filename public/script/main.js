@@ -1,6 +1,13 @@
 const wisataEntries = wisataMap.map.entries();
 // Ambil daftar wisata di Makassar
 function cariWisata(str, lokasiPengguna) {
+	if (
+		lokasiPengguna.latitude === undefined ||
+		lokasiPengguna.longitude === undefined
+	) {
+		return;
+	}
+
 	const wisataDiMakassar = wisataMap.getWisata(str);
 
 	// Buat objek Navigator dengan graph yang telah dibuat
@@ -49,36 +56,49 @@ function addToContainer(containerHtmls, listWisata) {
 		}
 	});
 }
+function handleContainerIntersection(evt, coords) {
+	const lokasiPengguna = {
+		latitude: coords.latitude,
+		longitude: coords.longitude,
+	};
+	const { target, isIntersecting } = evt;
 
+	if (!isIntersecting) return;
+
+	if (target.id === REKOMENDASI_CONTAINER_ID) {
+		addToContainer(
+			rekomendasiWisataContainer,
+			cariWisata("Makassar", lokasiPengguna)
+		);
+	} else if (target.id === KABUPATEN_WISATA_CONTAINER_ID) {
+		renderSelectElement((val) => {
+			addToContainer(
+				kabupatenWisataContainer,
+				cariWisata(val, lokasiPengguna)
+			);
+		});
+		addToContainer(
+			kabupatenWisataContainer,
+			cariWisata("Barru", lokasiPengguna)
+		);
+	}
+}
 async function handleObservedContainerElements(evt) {
 	try {
 		const { coords } = await getCurrentLocation();
-		const lokasiPengguna = {
-			latitude: coords.latitude,
-			longitude: coords.longitude,
-		};
-		const { target, isIntersecting } = evt;
 
-		if (!isIntersecting) return;
+		handleContainerIntersection(evt, coords);
 
-		if (target.id === REKOMENDASI_CONTAINER_ID) {
-			addToContainer(
-				rekomendasiWisataContainer,
-				cariWisata("Makassar", lokasiPengguna)
-			);
-		} else if (target.id === KABUPATEN_WISATA_CONTAINER_ID) {
-			renderSelectElement((val) => {
-				addToContainer(
-					kabupatenWisataContainer,
-					cariWisata(val, lokasiPengguna)
-				);
-			});
-			addToContainer(
-				kabupatenWisataContainer,
-				cariWisata("Barru", lokasiPengguna)
-			);
-		}
+		console.log("running");
 	} catch (err) {
+		if (err?.message == "User denied Geolocation") {
+			alert(
+				"Akses Lokasi Diperlukan. Jika tidak menanggapi, Lokasi 0.0 akan digunakan."
+			);
+
+			handleContainerIntersection(evt, { latitude: 0, longitude: 0 });
+		}
+
 		console.error("Error handling observed elements:", err);
 	}
 }
