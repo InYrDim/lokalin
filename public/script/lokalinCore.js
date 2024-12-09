@@ -7,11 +7,8 @@ class Wisata {
 	}
 
 	// Metode untuk membandingkan lokasi
-	isSameLocation(other) {
-		return (
-			this.latitude === other.latitude &&
-			this.longitude === other.longitude
-		);
+	getLocationKey() {
+		return `${this.latitude},${this.longitude}`;
 	}
 }
 
@@ -28,19 +25,24 @@ class WisataMap {
 		const wisataList = this.map.get(kota);
 
 		// Cek jika wisata dengan lokasi yang sama sudah ada
-		const existingIndex = wisataList.findIndex((existingWisata) =>
-			existingWisata.isSameLocation(wisata)
-		);
+		const locationKey = wisata.getLocationKey();
 
-		if (existingIndex !== -1) {
-			// Jika ada, update informasi wisata yang ada
-			wisataList[existingIndex] = wisata;
-			console.warn(
-				`Wisata "${wisata.nama}" telah diperbarui di "${kota}".`
-			);
+		if (this.map.has(locationKey)) {
+			// Jika ada, update wisata yang ada
+			const existingWisata = this.map.get(locationKey);
+			const existingIndex = wisataList.indexOf(existingWisata);
+			if (existingIndex !== -1) {
+				wisataList[existingIndex] = wisata;
+				console.warn(
+					`Wisata "${wisata.nama}" telah diperbarui di "${kota}".`
+				);
+			}
 		} else {
 			// Jika tidak ada, tambahkan wisata baru
 			wisataList.push(wisata);
+
+			// Simpan lokasi wisata di locationMap
+			this.map.set(locationKey, wisata);
 		}
 	}
 
