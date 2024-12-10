@@ -1,4 +1,3 @@
-import { Wisata, WisataMap } from "./lokalinCore.js";
 function generateUniqueId() {
      const timestamp = Date.now().toString(36);
      const randomChars = Math.random().toString(36).substring(2, 8);
@@ -6,7 +5,7 @@ function generateUniqueId() {
 }
 
 // Contoh penggunaan
-export const wisata = new WisataMap();
+const wisata = new WisataMap();
 
 wisata.addWisata(
      "Makassar",

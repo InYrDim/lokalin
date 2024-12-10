@@ -1,34 +1,6 @@
-import {
-     rekomendasiWisataContainer,
-     kabupatenWisataContainer,
-     KABUPATEN_WISATA_CONTAINER_ID,
-     REKOMENDASI_CONTAINER_ID,
-} from "./config.js";
-import { LokalinNavigator } from "./lokalinCore.js";
-
-import { wisata as wisataMap } from "./lokalinData.js";
-import {
-     renderModal,
-     renderSelectElement,
-     renderWisataCard,
-} from "./components.js";
-import {
-     parseDistance,
-     getCurrentLocation,
-     observeElements,
-     setOSRMDistance,
-} from "./utlis.js";
-
 const wisataEntries = wisataMap.map.entries();
 // Ambil daftar wisata di Makassar
 function cariWisata(str, lokasiPengguna) {
-     if (
-          lokasiPengguna.latitude === undefined ||
-          lokasiPengguna.longitude === undefined
-     ) {
-          return;
-     }
-
      const wisataDiMakassar = wisataMap.getWisata(str);
 
      // Buat objek Navigator dengan graph yang telah dibuat
@@ -81,49 +53,36 @@ function addToContainer(containerHtmls, listWisata) {
           }
      });
 }
-function handleContainerIntersection(evt, coords) {
-     const lokasiPengguna = {
-          latitude: coords.latitude,
-          longitude: coords.longitude,
-     };
-     const { target, isIntersecting } = evt;
 
-     if (!isIntersecting) return;
-
-     if (target.id === REKOMENDASI_CONTAINER_ID) {
-          addToContainer(
-               rekomendasiWisataContainer,
-               cariWisata("Makassar", lokasiPengguna)
-          );
-     } else if (target.id === KABUPATEN_WISATA_CONTAINER_ID) {
-          renderSelectElement((val) => {
-               addToContainer(
-                    kabupatenWisataContainer,
-                    cariWisata(val, lokasiPengguna)
-               );
-          });
-          addToContainer(
-               kabupatenWisataContainer,
-               cariWisata("Barru", lokasiPengguna)
-          );
-     }
-}
 async function handleObservedContainerElements(evt) {
      try {
           const { coords } = await getCurrentLocation();
+          const lokasiPengguna = {
+               latitude: coords.latitude,
+               longitude: coords.longitude,
+          };
+          const { target, isIntersecting } = evt;
 
-          handleContainerIntersection(evt, coords);
+          if (!isIntersecting) return;
 
-          console.log("running");
-     } catch (err) {
-          if (err?.message == "User denied Geolocation") {
-               alert(
-                    "Akses Lokasi Diperlukan. Jika tidak menanggapi, Lokasi 0.0 akan digunakan."
+          if (target.id === REKOMENDASI_CONTAINER_ID) {
+               addToContainer(
+                    rekomendasiWisataContainer,
+                    cariWisata("Makassar", lokasiPengguna)
                );
-
-               handleContainerIntersection(evt, { latitude: 0, longitude: 0 });
+          } else if (target.id === KABUPATEN_WISATA_CONTAINER_ID) {
+               renderSelectElement((val) => {
+                    addToContainer(
+                         kabupatenWisataContainer,
+                         cariWisata(val, lokasiPengguna)
+                    );
+               });
+               addToContainer(
+                    kabupatenWisataContainer,
+                    cariWisata("Barru", lokasiPengguna)
+               );
           }
-
+     } catch (err) {
           console.error("Error handling observed elements:", err);
      }
 }

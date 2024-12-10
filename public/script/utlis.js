@@ -1,16 +1,16 @@
 // function to parse floating point distance to string with 2 decimal places
-export function parseDistance(distance) {
+function parseDistance(distance) {
      return distance.toFixed(2);
 }
 
 // getCurrentLocation Position lat long
-export function getCurrentLocation() {
+function getCurrentLocation() {
      return new Promise((resolve, reject) => {
           navigator.geolocation.getCurrentPosition(resolve, reject);
      });
 }
 
-export async function setOSRMDistance({ latitude, longitude }) {
+async function setOSRMDistance({ latitude, longitude }) {
      const container = document.getElementById("distance-osrm");
      container.innerHTML = "...";
      const { coords } = await getCurrentLocation();
@@ -24,7 +24,7 @@ export async function setOSRMDistance({ latitude, longitude }) {
 }
 
 // create observer
-export function observeElements(elements, onIntersect, options = {}) {
+function observeElements(elements, onIntersect, options = {}) {
      if (!window.IntersectionObserver) {
           console.warn(
                "IntersectionObserver is not supported by this browser."

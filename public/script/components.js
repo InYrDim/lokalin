@@ -1,4 +1,4 @@
-export function renderWisataCard(wisata, jarak, isClosest) {
+function renderWisataCard(wisata, jarak, isClosest) {
      // Create the container div for the card
      const container = document.createElement("div");
      container.className = `border-2 border-Primary-950 ${
@@ -44,7 +44,7 @@ export function renderWisataCard(wisata, jarak, isClosest) {
      return { card: container.outerHTML };
 }
 
-export function renderModal(wisata) {
+function renderModal(wisata) {
      const modalContainer = document.getElementById("map_modal");
      const modalIframe = document.getElementById(`modal-iframe`);
      const modalTitle = document.getElementById("modal-title");
@@ -64,11 +64,11 @@ export function renderModal(wisata) {
      modalIframe.innerHTML = iframe;
 }
 
-export function renderSelectElement(callback) {
+function renderSelectElement(callback) {
      const select = document.getElementById("select-kabupaten");
 
      let wisatas = [];
-     for (const entry of wisataEntries) {
+     for (const entry of wisataMap.map.entries()) {
           const entryName = entry[0];
           wisatas.push(entryName);
      }

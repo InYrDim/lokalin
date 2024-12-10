@@ -1,4 +1,4 @@
-export class Wisata {
+class Wisata {
      constructor(id, nama, latitude, longitude) {
           this.id = id;
           this.nama = nama;
@@ -7,12 +7,15 @@ export class Wisata {
      }
 
      // Metode untuk membandingkan lokasi
-     getLocationKey() {
-          return `${this.latitude},${this.longitude}`;
+     isSameLocation(other) {
+          return (
+               this.latitude === other.latitude &&
+               this.longitude === other.longitude
+          );
      }
 }
 
-export class WisataMap {
+class WisataMap {
      constructor() {
           this.map = new Map();
      }
@@ -25,24 +28,19 @@ export class WisataMap {
           const wisataList = this.map.get(kota);
 
           // Cek jika wisata dengan lokasi yang sama sudah ada
-          const locationKey = wisata.getLocationKey();
+          const existingIndex = wisataList.findIndex((existingWisata) =>
+               existingWisata.isSameLocation(wisata)
+          );
 
-          if (this.map.has(locationKey)) {
-               // Jika ada, update wisata yang ada
-               const existingWisata = this.map.get(locationKey);
-               const existingIndex = wisataList.indexOf(existingWisata);
-               if (existingIndex !== -1) {
-                    wisataList[existingIndex] = wisata;
-                    console.warn(
-                         `Wisata "${wisata.nama}" telah diperbarui di "${kota}".`
-                    );
-               }
+          if (existingIndex !== -1) {
+               // Jika ada, update informasi wisata yang ada
+               wisataList[existingIndex] = wisata;
+               console.warn(
+                    `Wisata "${wisata.nama}" telah diperbarui di "${kota}".`
+               );
           } else {
                // Jika tidak ada, tambahkan wisata baru
                wisataList.push(wisata);
-
-               // Simpan lokasi wisata di locationMap
-               this.map.set(locationKey, wisata);
           }
      }
 
@@ -59,7 +57,7 @@ export class WisataMap {
      }
 }
 
-export class LokalinNavigator {
+class LokalinNavigator {
      constructor(wisataMap) {
           this.wisataList = wisataMap;
      }
